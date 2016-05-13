@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import DomainMonitor, IpMonitor, IndicatorAlert, IndicatorTag
+from .models import CertificateMonitor, DomainMonitor, IpMonitor, IndicatorAlert, IndicatorTag
 
 
 class IpMonitorAdmin(admin.ModelAdmin):
@@ -8,6 +8,10 @@ class IpMonitorAdmin(admin.ModelAdmin):
 
 class DomainMonitorAdmin(admin.ModelAdmin):
     list_display = ('domain_name', 'last_hosts', 'modified', 'owner')
+
+
+class CertificateMonitorAdmin(admin.ModelAdmin):
+    list_display = ('certificate_value', 'last_hosts', 'resolutions', 'modified', 'owner')
 
 
 class IndicatorAlertAdmin(admin.ModelAdmin):
@@ -21,4 +25,5 @@ class IndicatorTagAdmin(admin.ModelAdmin):
 admin.site.register(IndicatorTag, IndicatorTagAdmin)
 admin.site.register(IpMonitor, IpMonitorAdmin)
 admin.site.register(DomainMonitor, DomainMonitorAdmin)
+admin.site.register(CertificateMonitor, CertificateMonitorAdmin)
 admin.site.register(IndicatorAlert, IndicatorAlertAdmin)
